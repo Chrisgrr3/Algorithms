@@ -23,23 +23,33 @@ class slStack {
 
     pop() {
         if (this.top === null) return null;
-        var first = this.top;
-        this.top = this.top.next;
-        first.next = null;
-        this.length--;
-        return first;
+        const first = this.top; // store previous top
+        this.top = this.top.next; // move top pointer
+        first.next = null; // remove pointer from stored node
+        this.length--; // decrement length
+
+        return first; // return the node
     }
 
+    // Node myNode = mySLL.pop();
+
     peek() {
-        console.log(this.top.data);
+        // does this exist?           else, return null
+        return this.head ? this.head : null;
+        //           if so, return this
+        // or 
+        // return this.head;
     }
 
     isEmpty() {
-        if (this.head === null) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.head === null;
+        // or 
+        
+        // if (this.head === null) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 
     length() {
