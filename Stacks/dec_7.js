@@ -35,17 +35,17 @@ class slStack {
 
     peek() {
         // does this exist?           else, return null
-        return this.head ? this.head : null;
+        return this.top ? this.top : null;
         //           if so, return this
         // or 
-        // return this.head;
+        // return this.top;
     }
 
     isEmpty() {
-        return this.head === null;
+        return this.top === null;
         // or 
-        
-        // if (this.head === null) {
+
+        // if (this.top === null) {
         //     return true;
         // } else {
         //     return false;
@@ -55,4 +55,21 @@ class slStack {
     length() {
         return this.length;
     }
+}
+
+function countStack(stack) {
+    let newStack = new slStack();
+    let count = 0;
+
+    while (!stack.isEmpty()) {
+        let node = stack.pop();
+        newStack.push(node);
+        count++;
+    }
+
+    while (!newStack.isEmpty()) {
+        stack.push(newStack.pop());
+    }
+
+    return count;
 }
