@@ -11,3 +11,5 @@ function insertionSort(array) {
     }
     return array;
 }
+
+console.log(insertionSort([6,7,3,2,4,2]));
